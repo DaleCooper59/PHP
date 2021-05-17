@@ -46,13 +46,11 @@ $a = array("19001" => array("Centre", "Centre", "Centre", "Centre", "Centre", "C
        "19002" => array("Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Validation", ""), 
        "19003" => array("", "", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Centre", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "Stage", "", "", "Validation") 
      );
-     
-$un = $a[19001];
+ $un = $a[19001];
 $deux= $a[19002];
-$count=0;
-forEach($un as $ele){
-    $count+=$ele;
-    
-}
-echo $count;
-$positionStage = array_search('Stage', array_reverse($un));
+
+$count =count($un);
+$find = array_search("Stage",array_reverse($un),false);
+  
+echo $count-$find;
+
