@@ -8,34 +8,18 @@
 </head>
 <body> 
 <div class="container">
+<h1>Liste des produits</h1>
 
 <?php 
 
-require 'connexion_bdd.php';
+require 'requete.php';
 
-$valuePourBind=$_GET["pro_id"];
-
-
-$db = connexionBase(); // Appel de la fonction de connexion
-
-$requete = $db->prepare('SELECT * FROM produits WHERE pro_id = :idNbr');
-
-$requete->bindValue(":idNbr",$valuePourBind);
-
-$requete->execute();
-
-$list = $requete -> fetchAll(PDO::FETCH_OBJ);
-
-foreach($list as $l){
-    echo '<h2>'.$l->pro_id. ': '. $l->pro_ref.'</h2>';
-    echo  '<p>'.$l->pro_description.'</p>';
-}
 
  /* echo '<pre>';
     echo print_r($requete->fetch(PDO::FETCH_OBJ));
     echo '</pre>';
 
-
+*/
 
 $requete->closeCursor();/*pour le select*/
 

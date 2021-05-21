@@ -20,7 +20,7 @@ function connexionBase()
 
         $db = new PDO($host.$DBName, $login, $password,$options);
 
-        echo'connexion aboutie <br> <br>';
+        
         return $db;
     } 
     catch (Exception $e) 
