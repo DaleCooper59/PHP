@@ -31,7 +31,7 @@ $list = $requete -> fetchAll(PDO::FETCH_OBJ);
     foreach($list as $l){
     echo '<tr>';
     echo '<td>'.$l->pro_photo.'</td>';
-    echo '<th scope="row">'.$l->pro_id.'</th>';
+    echo '<th scope="row"><a href="./requeteDetail.php?pro_id='.$l->pro_id.'">'.$l->pro_id.'</a></th>';
     echo '<td>'.$l->pro_ref.'</td>';
     echo '<td>'.$l->pro_libelle.'</td>';
     echo '<td>'.$l->pro_prix.'</td>';
