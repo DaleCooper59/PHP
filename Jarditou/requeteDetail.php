@@ -34,7 +34,7 @@ $jpg = $valuePourBind;
 
 
 foreach($list as $l){
-    echo ' <div class="card" style="width: 18rem;">
+    echo ' <div class="card" style="width: 40rem;">
      <img class="card-img-top" src="./jarditou_photos/'.$jpg.'.jpg." alt="Card image cap">
      <div class="card-body">
      <h5 class="card-title">'. $l->pro_id.'</h5>

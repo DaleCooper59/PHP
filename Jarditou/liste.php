@@ -4,9 +4,25 @@ require 'connexion_bdd.php';
 
 $db = connexionBase(); // Appel de la fonction de connexion
 
-$requete = $db->prepare('SELECT * FROM produits');
+$requete = $db->prepare('SELECT * FROM produits 
+                         WHERE ISNULL(pro_bloque) 
+                         ORDER BY pro_d_ajout DESC');
 
 $requete->execute();
+
+
+if (!$requete) 
+{
+    $tableauErreurs = $db->errorInfo();
+    echo $tableauErreurs[2]; 
+    die("Erreur dans la requête");
+}
+
+if ($requete->rowCount() == 0) 
+{
+   // Pas d'enregistrement
+   die("La table est vide");
+}
 
 $list = $requete -> fetchAll(PDO::FETCH_OBJ);
 
@@ -33,7 +49,7 @@ $list = $requete -> fetchAll(PDO::FETCH_OBJ);
     echo '<td>'.$l->pro_photo.'</td>';
     echo '<th scope="row"><a href="./requeteDetail.php?pro_id='.$l->pro_id.'">'.$l->pro_id.'</a></th>';
     echo '<td>'.$l->pro_ref.'</td>';
-    echo '<td>'.$l->pro_libelle.'</td>';
+    echo '<td><a href="./requeteDetail.php?pro_id='.$l->pro_id.'">'.$l->pro_libelle.'</a></td>';
     echo '<td>'.$l->pro_prix.'</td>';
     echo '<td>'.$l->pro_stock.'</td>';
     echo '<td>'.$l->pro_couleur.'</td>';
