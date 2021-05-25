@@ -15,21 +15,19 @@
   <div class="container">
   
 <form action="./produits_ajout_script.php" method="POST">
-  <div class="form-group">
+ <!-- <div class="form-group">
     <label for="ID">ID</label>
     <input type="number" name="ID" class="form-control" id="ID" aria-describedby="ID" placeholder="1">
-  </div>
+  </div>-->
+  
+  
   <div class="form-group">
-    <label for="photo">Photo</label>
-    <input type="text" name="photo" class="form-control" id="photo" aria-describedby="photo du produit" placeholder="jpg">
+    <label for="categorie">Catégorie</label>
+    <input type="text" name="categorie" class="form-control" id="categorie" aria-describedby="categorieProduit" placeholder="CATEGORIE">
   </div>
   <div class="form-group">
     <label for="ref">Références</label>
     <input type="text" name="ref" class="form-control" id="ref" aria-describedby="referenceProduit" placeholder="AI05B">
-  </div>
-  <div class="form-group">
-    <label for="categorie">Catégorie</label>
-    <input type="text" name="categorie" class="form-control" id="categorie" aria-describedby="categorieProduit" placeholder="CATEGORIE">
   </div>
   <div class="form-group">
     <label for="libelle">Libellé</label>
@@ -51,21 +49,11 @@
     <label for="color">Couleur</label>
     <input type="text" name="color" class="form-control" id="color" aria-describedby="couleur" placeholder="Sa couleur dominante est le ...">
   </div>
+  <div class="form-group">
+    <label for="photo">Photo</label>
+    <input type="text" name="photo" class="form-control" id="photo" aria-describedby="photo du produit" placeholder="jpg">
+  </div>
 
-<div class="d-flex">
-  <span>Prdouit bloqué :</span>
-  <div class="form-check mx-3">
-  <input class="form-check-input" type="radio" name="bloque" id="bloqueOui" value="Oui" checked>
-  <label class="form-check-label" for="bloqueOui">
-    Oui
-  </label>
-</div>
-  <div class="form-check mx-3 ">
-  <input class="form-check-input" type="radio" name="bloque" id="bloqueNon" value="Non">
-  <label class="form-check-label" for="bloqueNon">
-    Non
-  </label>
-</div>
 </div>
 
 
@@ -84,12 +72,28 @@
   
     <input class="form-control" type="date" value="2011-08-19" id="dateModif" name="dateModif">
   
-</div>
   </div>
+</div>
   
+  
+<div class="d-flex">
+  <span>Prdouit bloqué :</span>
+  <div class="form-check mx-3">
+  <input class="form-check-input" type="radio" name="bloque" id="bloqueOui" value="Oui" checked>
+  <label class="form-check-label" for="bloqueOui">
+    Oui
+  </label>
+</div>
+  <div class="form-check mx-3 ">
+  <input class="form-check-input" type="radio" name="bloque" id="bloqueNon" value="Non">
+  <label class="form-check-label" for="bloqueNon">
+    Non
+  </label>
+</div>
+
 
  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary d-block">Submit</button>
 </form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
