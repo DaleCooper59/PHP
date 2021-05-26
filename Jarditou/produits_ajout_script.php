@@ -1,11 +1,14 @@
 <?php
 
 require 'connexion_bdd.php';
+require 'functions.php';
 
 /*$ID = */ $reference = $categorie = $libelle = $description = $prix= 
 $stock = $couleur = $photo = $dateAjout = $dateModif = $bloque = "";
 
+if(isset($_POST['create'])){
 
+/*CREATE Product*/
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   /*$ID = test_input($_POST["ID"]);*/
@@ -21,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $dateModif = test_input($_POST["dateModif"]);
   $bloque = test_input($_POST["bloque"]);
 
-  echo 'all is alrigth!!!';
 
   $db = connexionBase(); // Appel de la fonction de connexion
 
@@ -44,19 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $requete->execute();
 
-  header("Location:liste.php");
+  echo 'ce produit a bien été ajouté';
+
+  header("refresh:3;url=liste.php");
  
 }
-function test_input($data) {
-if(isset($data) && !empty($data)){
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-  }
+
 }
-
-
+  //$sql = 'UPDATE produits SET pro_couleur = :couleur WHERE pro_libelle = :lib';
 
 
 ?>
