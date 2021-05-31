@@ -14,7 +14,7 @@
 <body>
   <div class="container">
   
-<form action="./produits_ajout_script.php" method="POST">
+<form action="./produits_ajout_script.php" method="POST" enctype="multipart/form-data">
  <!-- <div class="form-group">
     <label for="ID">ID</label>
     <input type="number" name="ID" class="form-control" id="ID" aria-describedby="ID" placeholder="1">
@@ -91,7 +91,10 @@
   </label>
 </div>
 
-
+<div class="form-group">
+        <input type="hidden" name="MAX_FILE_SIZE" value="10000000"> 
+        <input type="file" name="uploadPhoto" id="uploadPhoto" >
+        </div>
  
   <button type="submit" name="create" class="btn btn-primary d-block">Submit</button>
  

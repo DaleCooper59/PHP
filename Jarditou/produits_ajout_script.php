@@ -3,6 +3,7 @@
 require 'connexion_bdd.php';
 require 'functions.php';
 
+
 /*$ID = */ $reference = $categorie = $libelle = $description = $prix= 
 $stock = $couleur = $photo = $dateAjout = $dateModif = $bloque = "";
 
@@ -48,12 +49,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   echo 'ce produit a bien été ajouté';
 
-  header("refresh:3;url=liste.php");
+  //header("refresh:3;url=liste.php");
+
+}
+  
+
+require 'error.php';
+
+if (isset($_FILES["uploadPhoto"]['name'])) 
+{ 
+
+$aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
+
+$finfo = finfo_open(FILEINFO_MIME_TYPE);
+
+$mimetype = finfo_file($finfo, $_FILES["uploadPhoto"]["tmp_name"]);
+
+finfo_close($finfo);
+
+
+if (in_array($mimetype, $aMimeTypes))
+{
+   echo 'okay';  
+   move_uploaded_file($_FILES["uploadPhoto"]["tmp_name"], "jarditou_photos/RandM.png");       
+} 
+else 
+{
+  
+   echo "Type de fichier non autorisé";    
+   exit;
+}    
+} 
  
 }
 
-}
-  //$sql = 'UPDATE produits SET pro_couleur = :couleur WHERE pro_libelle = :lib';
+
+
 
 
 ?>
