@@ -22,37 +22,44 @@
         <form id="form1" name="form1" action="script.php" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="societe">Société : </label>
-                <input type="text" id="societe" name="societe" value="Jauron" />
+                <input type="text" id="societe" name="societe" placeholder="Jauron" />
+               
             </div>
 
             <div class="form-group">
                 <label for="contact">Contact : </label>
-                <input type="text" name="contact" id="contact" value="Eric dupont" />
+                <input type="text" name="contact" id="contact" placeholder="Eric dupont" />
+               
             </div>
 
             <div class="form-group">
                 <label for="adEntreprise">Adresse entreprise : </label>
-                <input type="textarea" name="adEntreprise" id="adEntreprise" value="12 rue ..." />
+                <input type="textarea" name="adEntreprise" id="adEntreprise" placeholder="12 rue ..." />
+               
             </div>
 
             <div class="form-group">
                 <label for="CP">Code postal : </label>
-                <input type="Number" name="CP" id="CP" value="00000" />
+                <input type="Number" name="CP" id="CP" maxlength="5" placeholder="00000" />
+               
             </div>
 
             <div class="form-group">
                 <label for="ville">Ville : </label>
-                <input type="text" name="ville" id="ville" value="Lille" />
+                <input type="text" name="ville" id="ville" placeholder="Lille" />
+                
             </div>
 
             <div class="form-group">
                 <label for="mail">Email : </label>
-                <input type="email" name="mail" id="mail" value="ch@ch.f" />
+                <input type="email" name="mail" id="mail" placeholder="ch@ch.f" />
+                
             </div>
 
             <div class="form-group">
                 <label for="tel">Tel : </label>
-                <input type="Number" name="tel" id="tel" value="0600000000" />
+                <input type="Number" name="tel" id="tel" minlength="10" maxlength="10" placeholder="0600000000" />
+                
             </div>
 
             <div class="form-group">
@@ -72,6 +79,7 @@
                     <option value="oracle">oracle</option>
                     <option value="autre">autre ...</option>
                 </select>
+                
             </div>
 
             <div class="form-group">
@@ -79,7 +87,7 @@
                 <input type="file" name="fichier" id="fichier">
             </div>
 
-            <button class="btn btn-primary" type="submit" id="idSubForm1" name="subForm1">Envoyer</button>
+            <button class="btn btn-primary" type="submit" id="idSubForm1" name="submit">Envoyer</button>
 
 
         </form>

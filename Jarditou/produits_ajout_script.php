@@ -71,7 +71,7 @@ finfo_close($finfo);
 if (in_array($mimetype, $aMimeTypes))
 {
    echo 'okay';  
-   move_uploaded_file($_FILES["uploadPhoto"]["tmp_name"], "jarditou_photos/RandM.png");       
+   move_uploaded_file($_FILES["uploadPhoto"]["tmp_name"], "jarditou_photos/nbr.jpg");       
 } 
 else 
 {
