@@ -23,14 +23,14 @@ $tel = test_input($_POST["tel"]);
 $env = test_input($_POST["env"]);
 
 
-  echo $societe;
-  echo $contact;
-  echo $adEnt ;
-  echo $CP ;
-  echo $ville;
-  echo $mail ;
-  echo $tel ;
-  echo $env ;
+  echo $societe . '<br>';
+  echo $contact. '<br>';
+  echo $adEnt . '<br>';
+  echo $CP . '<br>';
+  echo $ville. '<br>';
+  echo $mail . '<br>';
+  echo $tel . '<br>';
+  echo $env . '<br>';
 
   
   header("Refresh:5; url=formulaire.php");
