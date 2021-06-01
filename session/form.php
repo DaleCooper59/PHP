@@ -1,16 +1,7 @@
 <?php
-if(isset($_POST['login']) && isset($_POST['MDP']) && !empty($_POST['login'])&& !empty($_POST['MDP'])){
-    session_start();
-    $_SESSION['pseudo'] = $_POST['login'];
-    $_SESSION['MDP'] = $_POST['MDP'];
-    $_SESSION['connected'] = true;
-    
-    header("location:session-page.php");
-}
-
-
-
+$err= isset($_GET['error']) ? $_GET['error'] : '';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +12,7 @@ if(isset($_POST['login']) && isset($_POST['MDP']) && !empty($_POST['login'])&& !
 </head>
 <body>
 
-<form action="session-page.php" method="POST">
+<form action="login.php" method="POST">
 <label for="login">login</label>
 <input type="text" name="login">
 
@@ -33,6 +24,31 @@ if(isset($_POST['login']) && isset($_POST['MDP']) && !empty($_POST['login'])&& !
 
 </form>
 
+<?php
+switch($err){
+    case 1 :
+        echo 'Le login doit etre renseigné';
+        break;
+
+    case 2 :
+        echo 'Le Mot de passe doit etre renseigné';
+        break;
+
+    case 3 :
+        echo 'Le Mot de passe ne correspond pas';
+        break;
+
+    case 4 :
+        echo 'Vous devez vous connecter à votre session';
+        break;
+
+    case 5 :
+        echo 'Il y a une autre erreur';
+        break;
+
+    default : 'Nothing';
+}
+?>
 
    
 </body>
