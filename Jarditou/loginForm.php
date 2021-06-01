@@ -12,7 +12,7 @@ $err= isset($_GET['error']) ? $_GET['error'] : '';
 </head>
 <body>
 
-<form action="login.php" method="POST">
+<form action="loginScript.php" method="POST">
 <label for="login">login</label>
 <input type="text" name="login">
 
