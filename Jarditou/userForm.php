@@ -2,9 +2,9 @@
 $err= isset($_GET['error']) ? $_GET['error'] : '';
 $error1 ='Votre email ne respecte pas le formalisme';
 $error2 = 'Le pseudo existe déjà';
-$error3 = 'Le mot de passe est trop court';
+$error3 = 'Le mot de passe est trop court (minimum 8 caractères)';
 
-
+echo($err);
 ?>
 
 
@@ -51,7 +51,7 @@ $error3 = 'Le mot de passe est trop court';
 	<div class="form-group">
 		<label for="mail">Adresse mail</label>
 		<br>
-		<span><?php if($err){echo '<b class="text-danger">' . $error1 .'</b>';}?></span>
+		<span><?php if($err==1){echo '<b class="text-danger">' . $error1 .'</b>';}?></span>
 		<input type="email" class="form-control" name="mail" required placeholder="bla@bla.bla">
 		<small class="form-text text-muted">Votre adresse mail ne sera jamais partagée</small>
 	</div> <!-- form-group end.// -->
@@ -62,7 +62,7 @@ $error3 = 'Le mot de passe est trop court';
 	</div> <!-- form-group end.// -->  
     <div class="form-group">
 		<label for="MDP">Créer un mot de passe fort, consulter un <a href="https://passwordsgenerator.net/">générateur</a> pour vous aider </label>
-		<span><?php if($err){echo '<b class="text-danger">' . $error3 .'</b>';}?></span>
+		<span><?php if($err== 3){echo '<b class="text-danger">' . $error3 .'</b>';}?></span>
 		<input type="password" class="form-control" required name="MDP">
 	</div> <!-- form-group end.// -->  
     <div class="form-group">
