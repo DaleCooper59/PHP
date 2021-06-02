@@ -4,5 +4,3 @@ function sessionOk($connected){
     header('Location:form.php?error=4');
 }
 }
-
-?>

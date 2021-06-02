@@ -1,3 +1,10 @@
+<?php
+session_start();
+echo '<br>';
+setlocale(LC_TIME, 'fr_FR','fra');
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,6 +14,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">    
 </head>
 <body> 
+<h1 class="text-center text-success m-5"> Bonjour à vous <?php echo $_SESSION['pseudo'];?>, qu'est qui vous ferez plaisir en ce <?php echo strftime("%A %d %B %Y");?> ?</h1>
 <div class="container">
 <h1>Liste des produits</h1>
 

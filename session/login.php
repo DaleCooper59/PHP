@@ -21,4 +21,3 @@ if($login && $mdp){
 }else{
     header('Location:form.php?error=5');
 }
-?>

@@ -1,5 +1,6 @@
 <?php
 $err= isset($_GET['error']) ? $_GET['error'] : '';
+
 ?>
 
 <!DOCTYPE html>

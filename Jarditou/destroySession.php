@@ -10,4 +10,4 @@ if (ini_get("session.use_cookies"))
 session_destroy();
 
 echo 'La session a été détruite, vous allez revenir sur le formulaire';
-header("Refresh:3; url=form.php");
+header("Refresh:3; url=loginForm.php");

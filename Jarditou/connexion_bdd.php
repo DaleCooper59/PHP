@@ -30,4 +30,3 @@ function connexionBase()
         die('Connexion au serveur impossible.');
     } 
 }
-?>

@@ -4,11 +4,11 @@ require 'connexion_bdd.php';
 require 'functions.php';
 
 
-$nom = $prenom = $mail = $login = $MDP= "";
+$nom = $prenom = $mail = $login = $MDP=/* $MDPconfirmed = $hashedMDP = $datetime =*/  "";
 
 /*CREATE User*/
 
-if(isset($_POST['userLog']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['login']) && !empty($_POST['MDP'])){
+if(isset($_POST['userLog']) && !empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['login']) && !empty($_POST['MDP']) && !empty($_POST['MDPconfirmed'])){
     
   $nom = test_input($_POST["nom"]);
   $prenom = test_input($_POST["prenom"]);
@@ -16,12 +16,16 @@ if(isset($_POST['userLog']) && !empty($_POST['nom']) && !empty($_POST['prenom'])
   $mailValid = preg_match ( " /^.+@.+\.[a-zA-Z]{2,}$/ " , $mail );
   $login = test_input($_POST["login"]);
   $MDP = test_input($_POST["MDP"]);
+  $MDPconfirmed = test_input($_POST['MDPconfirmed']);
+  $hashedMDP = password_hash($MDP,PASSWORD_DEFAULT);
   $datetime = date_create()->format('Y-m-d H:i:s');
 
   if($mailValid == false){
-      header('Location:userForm.php?error=2');
+      header('Location:userForm.php?error=1');
   }elseif(strlen($MDP)<8){
       header('Location:userForm.php?error=3');
+  }elseif($MDP != $MDPconfirmed){
+    header('Location:userForm.php?error=4');
   }else{
             
     $db = connexionBase(); // Appel de la fonction de connexion
@@ -34,7 +38,7 @@ if(isset($_POST['userLog']) && !empty($_POST['nom']) && !empty($_POST['prenom'])
     $requete->bindParam(':prenom',$prenom);
     $requete->bindParam(':mail',$mail);
     $requete->bindParam(':log_in',$login);
-    $requete->bindParam(':MDP',$MDP);
+    $requete->bindParam(':MDP',$hashedMDP);
     $requete->bindParam(':inscr',$datetime);
     $requete->bindParam(':conn',$datetime);
     
