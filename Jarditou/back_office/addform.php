@@ -16,7 +16,7 @@
 <body>
   <div class="container">
 
-    <form action="./produits_ajout_script.php" method="POST" enctype="multipart/form-data">
+    <form action="produits_ajout_script.php" method="POST" enctype="multipart/form-data">
       <!-- <div class="form-group">
     <label for="ID">ID</label>
     <input type="number" name="ID" class="form-control" id="ID" aria-describedby="ID" placeholder="1">

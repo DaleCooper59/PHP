@@ -1,7 +1,7 @@
 <?php
 
-require 'connexion_bdd.php';
-require 'functions.php';
+require './back_office/connexion_bdd.php';
+require './back_office/functions.php';
 
 
 $nom = $prenom = $mail = $login = $MDP=/* $MDPconfirmed = $hashedMDP = $datetime =*/  "";
@@ -46,7 +46,7 @@ if(isset($_POST['userLog']) && !empty($_POST['nom']) && !empty($_POST['prenom'])
 
     echo 'Vous avez bien été inscrit';
 
-    //header("refresh:3;url=liste.php");
+    header("refresh:2;url=liste.php");
   }
   
 }

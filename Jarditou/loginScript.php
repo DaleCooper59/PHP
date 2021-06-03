@@ -2,8 +2,8 @@
 $login = isset($_POST['login']) && !empty($_POST['login']) ? $_POST['login'] : '';
 $mdp = isset($_POST['MDP']) && !empty($_POST['MDP']) ? $_POST['MDP'] : '';
 
-require 'connexion_bdd.php';
-require 'functions.php';
+require './back_office/connexion_bdd.php';
+require './back_office/functions.php';
 
 $db = connexionBase(); // Appel de la fonction de connexion
 
@@ -19,7 +19,7 @@ if($login && $mdp){
     $requete->execute();
 
     $user = $requete->fetch();
-
+    
     if(password_verify($mdp,$user['use_MDP'])){
     session_start();
     
@@ -27,19 +27,18 @@ if($login && $mdp){
     $_SESSION['MDP'] = $mdp;
     $_SESSION['connected'] = true;
 
-    echo '<h1>Content de vous revoir ' . $login .' !</h1>';
+    echo '<h1>Contents de vous revoir ' . $login .' !</h1>';
 
     header("Refresh: 2; url=liste.php");
     
     }else{
-    header('location:loginForm.php?error=3');
-    
+        header('location:loginForm.php?error=3');
     }
 }elseif($login==''){
     header('Location:loginForm.php?error=1');
 }elseif($mdp ==''){
     header('Location:loginForm.php?error=2');
 }else{
-    header('Location:loginForm.php?error=5');
+    header('Location:loginForm.php?error=6');
 }
 ?>

@@ -4,6 +4,7 @@ $error1 = 'Votre email ne respecte pas le formalisme';
 $error2 = 'Le pseudo existe déjà';
 $error3 = 'Le mot de passe est trop court (minimum 8 caractères)';
 $error4 = 'Le mot de passe est différent';
+$error5 = 'Vous devez vous connecter pour accéder à la liste de produits';
 
 echo ($err);
 ?>
@@ -26,6 +27,9 @@ echo ($err);
 
 <body>
 	<div class="container">
+		<span class="text-center"><?php if ($err == 5) {
+										echo '<b class="text-danger d-block">' . $error5 . '</b>';
+									} ?></span>
 
 		<h1 class="text-center m-5">Déjà venu ? Connectez vous sinon inscrivez vous</h1>
 
@@ -67,7 +71,7 @@ echo ($err);
 								</div> <!-- form-group end.// -->
 								<div class="form-group">
 									<label for="MDP">Créer un mot de passe fort, consulter un <a href="https://passwordsgenerator.net/">générateur</a> pour vous aider </label>
-										<br>
+									<br>
 									<span><?php if ($err == 3) {
 												echo '<b class="text-danger">' . $error3 . '</b>';
 											} ?></span>

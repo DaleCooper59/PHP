@@ -21,7 +21,7 @@ $err= isset($_GET['error']) ? $_GET['error'] : '';
 <input type="password" name="MDP">
 
 <input type="submit" placeholder="connexion">
-<a href="destroySession.php">destroy</a>
+<a href="./back_office/destroySession.php">destroy</a>
 
 </form>
 
@@ -44,6 +44,10 @@ switch($err){
         break;
 
     case 5 :
+        echo 'Nous ne connaissons pas ce pseudo';
+        break;
+
+    case 6 :
         echo 'Il y a une autre erreur';
         break;
 
