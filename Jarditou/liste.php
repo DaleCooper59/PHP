@@ -11,10 +11,10 @@ setlocale(LC_TIME, 'fr_FR', 'fra');
 
 
 if (isset($_POST['addBasket'])) {
-    if (isset($_POST['basket'])) {
+    if (isset($_SESSION['basket'])) {
 
         $basket_ids = array_column($_SESSION['basket'], 'id');
-
+        
         if (!in_array($_GET['pro_id'], $basket_ids)) {
             $newBasket = array(
                 'id' => $_GET['pro_id'],
@@ -24,7 +24,9 @@ if (isset($_POST['addBasket'])) {
             );
 
             $_SESSION['basket'][] = $newBasket;
-        }
+        }/*else{
+            $_SESSION['basket']['quantite']++;
+        }*/
     } else {
         $newBasket = array(
             'id' => $_GET['pro_id'],
@@ -44,7 +46,7 @@ if(isset($_GET['action'])){
     if($_GET['action'] == 'retirer'){
 
         foreach($_SESSION['basket'] as $k => $v){
-            if($v['id'] == $_GET['id']){
+            if($v['id'] == $_GET['pro_id']){
                 unset($_SESSION['basket'][$k]);
             }
         }
@@ -161,8 +163,9 @@ if(isset($_GET['action'])){
           <th scope="row">' . $v['id'] . '</th>
           <td>' . $v['libelle'] . '</td>
           <td>' . $v['prix'] . '</td>
-          <td>' . $v['quantite'] . '</td>
-          <td><a type="button" href="liste.php?action=retirer&id=' . $v['id'] . '" class="btn btn-danger" >retirer</a></td>
+          <td>' . $v['quantite'] . '</td>';
+          //<td>$' .number_format($v['prix'] * $v['quantite']) . '</td>
+         echo' <td><a type="button" href="liste.php?action=retirer&pro_id=' . $v['id'] . '" class="btn btn-danger" >retirer</a></td>
         </tr>
         ';
 
@@ -179,8 +182,7 @@ if(isset($_GET['action'])){
        ';
         }
         
-        
-
+     
 ?>
 
 
