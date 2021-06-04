@@ -1,12 +1,12 @@
 <?php
 $err = isset($_GET['error']) ? $_GET['error'] : '';
 $error1 = 'Votre email ne respecte pas le formalisme';
-$error2 = 'Le pseudo existe déjà';
+$error2 = 'L\'email est déjà utilisé';
 $error3 = 'Le mot de passe est trop court (minimum 8 caractères)';
 $error4 = 'Le mot de passe est différent';
-$error5 = 'Vous devez vous connecter pour accéder à la liste de produits';
+$error5 = 'Vous devez vous inscrire ou vous connecter pour accéder à la liste de produits';
 
-echo ($err);
+
 ?>
 
 
@@ -60,6 +60,9 @@ echo ($err);
 									<br>
 									<span><?php if ($err == 1) {
 												echo '<b class="text-danger">' . $error1 . '</b>';
+											} ?></span>
+									<span><?php if ($err == 2) {
+												echo '<b class="text-danger">' . $error2 . '</b>';
 											} ?></span>
 									<input type="email" class="form-control" name="mail" required placeholder="bla@bla.bla">
 									<small class="form-text text-muted">Votre adresse mail ne sera jamais partagée</small>

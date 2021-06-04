@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+?>
+<!DOCTYPE html>
+
 <html lang="fr">
 
 <head>
@@ -65,12 +71,14 @@
     ?>
 
     <form action="" method="POST" class="d-block"> 
+    <?php
+    if($_SESSION['pseudo'] =='admin'){
+      echo '<button type="submit" name="delete" class="btn btn-danger d-block">Détruire</button>';
+      echo '<br>';
+      echo '<button type="submit" name="update" class="btn btn-warning d-block"> <a href="./back_office/updateForm.php?pro_id='. $valuePourBind. '">Modifier</button>';
+    }
     
-    <button type="submit" name="delete" class="btn btn-danger d-block">Détruire</button>
-      
-      <br><br><br><br>
-   <button type="submit" name="delete" class="btn btn-warning d-block"> <a href="./back_office/updateForm.php?pro_id=<?php echo $valuePourBind ?>">Modifier</button>
-     
+     ?>
     </form>
 
   </div>

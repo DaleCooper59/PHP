@@ -56,7 +56,7 @@ function readAll()
 
     $requete = $db->prepare('SELECT * FROM produits 
                          /*WHERE ISNULL(pro_bloque) */
-                         ORDER BY pro_d_ajout DESC');
+                         ORDER BY pro_d_ajout ASC');
 
     $requete->execute();
 

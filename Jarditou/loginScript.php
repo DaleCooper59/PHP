@@ -27,7 +27,12 @@ if($login && $mdp){
     $_SESSION['MDP'] = $mdp;
     $_SESSION['connected'] = true;
 
-    echo '<h1>Contents de vous revoir ' . $login .' !</h1>';
+    
+    if($login == 'admin'){
+        echo '<h1>Contents de vous revoir Chris !</h1>';
+    }else{
+        echo '<h1>Contents de vous revoir ' . $login .' !</h1>';
+    }
 
     header("Refresh: 2; url=liste.php");
     
