@@ -1,6 +1,7 @@
 <?php
 // Indiquez ici le chemin absolu vers votre fichier "Personnage.class.php"
-// require_once "./classes/Personnage.class.php";
+require_once "C:/xampp/htdocs/PHP-Formation/POO/classes/Personnage.class.php";
+
 
 use PHPUnit\Framework\TestCase; // Charge le framework PhpUnit
 
@@ -17,7 +18,7 @@ class PersonnageTest extends TestCase
     public $proprietePrivee = true; 
     
     public function creerPerso(){
-        return new Personnage();
+        return new Personnage("jean","jean",12,"m");
     }  
     
     // Teste l'instanciation d'un objet

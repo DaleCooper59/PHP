@@ -1,7 +1,7 @@
 <?php
 
 class Animal{
-    private $_espece ="batard";
+    private $_espece ="epagneul";
     public $_regimeAlimentaire;
     public $_taille;
     public $_poids;
