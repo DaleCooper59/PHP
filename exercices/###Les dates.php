@@ -38,7 +38,7 @@ $dateEnd2=strtotime('2021-10-29');
 //$dateEnd3 = mktime(0, 0, 0, 29, 10, 2019);
 $dayRemain= $dateEnd2 - $dateNow2;
 
- echo floor($dayRemain/(24*60*60)) . ' jours restants avant la find e la formation';
+ echo floor($dayRemain/(24*60*60)) . ' jours restants avant la fin de la formation';
 
 
  echo '<br><br><br>';

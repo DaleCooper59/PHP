@@ -1,12 +1,12 @@
 <?php
 
-class Personnage{
+class PersonnageDefault{
     private $_name;
     private $_prenom;
     private $_age;
     private $_sexe;
 
-    public function __construct($name,$prenom,$age,$sexe)
+    public function __construct($name = 'Loper',$prenom = 'Dave',$age = '18',$sexe = 'masculin')
     {
         $this->_name = $name;
         $this->_prenom = $prenom;
@@ -14,6 +14,7 @@ class Personnage{
         $this->_sexe = $sexe;
     }
 
+    
     public function setNom($name)
     {
         return $this->_name =$name;

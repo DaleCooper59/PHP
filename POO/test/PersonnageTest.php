@@ -2,6 +2,7 @@
 // Indiquez ici le chemin absolu vers votre fichier "Personnage.class.php"
 require_once "C:/xampp/htdocs/PHP-Formation/POO/classes/Personnage.class.php";
 
+//require './vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase; // Charge le framework PhpUnit
 
@@ -18,7 +19,7 @@ class PersonnageTest extends TestCase
     public $proprietePrivee = true; 
     
     public function creerPerso(){
-        return new Personnage("jean","jean",12,"m");
+        return new Personnage(null,null,null,null);
     }  
     
     // Teste l'instanciation d'un objet
@@ -30,7 +31,7 @@ class PersonnageTest extends TestCase
     // Teste la visibilité du champ nom
     public function testPersonnageChampNom(){
         $personnageLambda = $this->creerPerso();
-        $private = $this->isPropertyPrivate($personnageLambda,'_nom');
+        $private = $this->isPropertyPrivate($personnageLambda,'_name');
         $this->assertEquals($this->proprietePrivee,$private);
     }
     
