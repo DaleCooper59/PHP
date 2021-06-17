@@ -135,49 +135,36 @@ class Employe extends Agence{
         return $this->_ticketRestaurant =$ticketRestaurant;
     }
 
-    public function getTicketRestaurant()
+    public function getTicketRestaurant(): bool
     {
         return $this->_ticketRestaurant;
     }
 
-/*
-    public function getListEmploye(){
-        $employes = [];
-        global $tab;
-        for ($i=0; $i < count($tab); $i++) { 
-            $emp = new Employe(null,null,null,null,0,null,null);
-            $emp->setNom("Nom ".$i);
-            $emp->setPrenom("Prenom ".$i);
-            $emp->setDateEmbauche("12/07/2018");
-            $emp->setFonction("Fonction ".$i);
-            $emp->setSalaire($i);
-            $emp->setService("Service ".$i);
-            
-            array_push($employes,$emp);
-        }
-        return $employes;
-    }*/
 }
     
 
 
 $e = new Employe("jean","jack",0,0,0,0,'true');
-$f = new Employe("jean","paul",null,null,0,null,'renoir');
-$g = new Employe("jean",'rachid',null,null,0,null,'agen');
-$h = new Employe("jean","mili",null,null,0,null,'yeah');
+$f = new Employe("clm","paul",null,null,0,null,'renoir');
+$g = new Employe("haaaa",'rachid',null,null,0,null,'agen');
+$h = new Employe("jkhjkhkujh","mili",null,null,0,null,'yeah');
 
 $tab = [$e,$f,$g,$h];
-
+$nomTab = [];
 for ($i=0; $i < count($tab); $i++) {
     
-    var_dump($tab[$i]->getAgence());
+    //var_dump($tab[$i]->getNom());
+    array_push($nomTab,$tab[$i]->getNom());
     /*var_dump($tab[$i]->getListEmploye());*/
 }
     
-
+var_dump($nomTab[1]);
 
 if($e->getTicketRestaurant() === false){
     echo 'Venez vous restaurer à la cantine de l\'entreprise';
 }
+
+$nbEmp = count($tab);
+echo __FILE__,' '. $nbEmp;
 
 
