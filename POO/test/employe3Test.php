@@ -57,8 +57,8 @@ class Employe3Test extends TestCase
     // Teste la fonction calculerPrime() de la classe Employe
     public function testPrimeEmploye3(){
               
-        $employeATester = new Employe("hamida","ha", "12/07/2010", null, 0, null,null);
-        $dateTemoin = "12/07/2010";
+        $employeATester = new Employe("hamida","ha", "12-07-2010", null, 0, null,null);
+        $dateTemoin = "12-07-2010";
         $montantPrime = 6000;
         $salaireTemoin = 24000;
 

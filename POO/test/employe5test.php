@@ -90,8 +90,6 @@ class Employe5Test extends TestCase
         $this->assertEquals($codePostal,$agenceATester->getZip());
     }
     
-
-
     // Teste la visibilité du champ ville de la classe Agence
     public function testPersonnageChampVille(){
         $agenceATester = new Agence(null,null,null,null,true);
@@ -147,7 +145,4 @@ class Employe5Test extends TestCase
         $employeATester->setAgence($agence);
         $this->assertEquals($agence,$employeATester->getAgence());
     }
-
-
-
 }

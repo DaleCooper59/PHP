@@ -5,11 +5,12 @@ require 'C:/xampp/htdocs/PHP-Formation/POO/classes/agence.class.php';
 class Employe extends Agence{
     private $_name;
     private $_prenom;
-    private $_dateEmbauche;
+    private $_dateEmbauche = "23-07-1998";
     private $_fonction;
     private int $_salaire=0;
     private $_service;
     private $_agence;
+    private $_enfant=array();
     protected $_ticketRestaurant =false;
 
     public function __construct($name,$prenom,$dateEmbauche,$fonction,$salaire,$service,$agence)
@@ -59,8 +60,14 @@ class Employe extends Agence{
         $dateNow = new DateTime();
         
         $interval = $dateNow->diff(new DateTime($dateEmbauche));
+        
         echo $interval-> format('%y année(s) d\'ancienneté');
+        if($interval->format("%y") >= 1){
+            echo ' Vous pouvez avoir des chèques vacances ';
+    }else{
+        echo ' Il faut un aminimum pur bénéficier de chèques vacances ';
     }
+}
 
     public function setFonction($fonction)
     {
@@ -119,6 +126,7 @@ class Employe extends Agence{
 
     public function setAgence($agence)
     {
+        
         return $this->_agence =$agence;
     }
     
@@ -126,7 +134,19 @@ class Employe extends Agence{
     {
         return $this->_agence;
     }
+    public function setEnfant($enfant)
+    {
+       
+        return $this->_enfant += $enfant;
+    }
+    
+    public function getEnfant()
+    {
+        
+        return $this->_enfant;
+    }
 
+   
     //si employe a des tickets restaurants, il n'y pas de restaurant dans l'agence
     public function setTicketRestaurant($ticketRestaurant)
     {
@@ -157,12 +177,45 @@ for ($i=0; $i < count($tab); $i++) {
     array_push($nomTab,$tab[$i]->getNom());
     /*var_dump($tab[$i]->getListEmploye());*/
 }
-    
-var_dump($nomTab[1]);
 
 if($e->getTicketRestaurant() === false){
-    echo 'Venez vous restaurer à la cantine de l\'entreprise';
+    echo 'Venez vous restaurer à la cantine de l\'entreprise ';
 }
+
+$e->setEnfant(array('tom' => 9));
+$e->setEnfant(array('ali' => 16));
+$e->setEnfant(array('laura' => 16));
+
+$val =array_values($e->getEnfant());
+
+$ten=0;
+$fifteen=0;
+$eighteen=0;
+foreach($val as $v){
+    if ($v <= 10 ){
+        $ten++;
+    }elseif($v > 10 && $v <= 15){
+        $fifteen++;
+    }elseif($v <=18){
+      $eighteen++;
+    }else{
+        return '';
+    }
+  
+}
+ 
+if($ten > 0 ){
+    echo 'vous avez droit à ' . $ten . ' chèque(s) cadeau de 20 euros';
+}
+ 
+if($fifteen > 0 ){
+    echo 'vous avez droit à ' . $fifteen . ' chèque(s) cadeau de 20 euros';
+}
+ 
+if($eighteen > 0 ){
+    echo 'vous avez droit à ' . $eighteen . ' chèque(s) cadeau de 20 euros';
+}
+
 
 $nbEmp = count($tab);
 echo __FILE__,' '. $nbEmp;
