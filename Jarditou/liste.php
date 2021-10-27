@@ -120,7 +120,7 @@ if(isset($_GET['action'])){
     <th scope="row"><a href="./requeteDetail.php?pro_id=' . $l->pro_id . '">' . $l->pro_id . '</a></th>
     <td>' . $l->pro_ref . '</td>
     <td><a href="./requeteDetail.php?pro_id=' . $l->pro_id . '">' . $l->pro_libelle . '</a></td>
-    <td>' . number_format($l->pro_prix, 2, ',') . '</td>
+    <td>' . number_format($l->pro_prix, 2) . '</td>
     <td>' . $l->pro_stock . '</td>
     <td>' . $l->pro_couleur . '</td>
     <td>' . $l->pro_d_ajout . '</td>
